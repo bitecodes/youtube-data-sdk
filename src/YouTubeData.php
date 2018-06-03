@@ -260,8 +260,12 @@ class YouTubeData
             $video = $mapper->map($item->snippet, $video);
         }
 
-        if (property_exists($item, 'id')) {
+        if (property_exists($item, 'id') && is_object($item->id)) {
             $video = $mapper->map($item->id, $video);
+        } elseif (property_exists($item, 'id') && is_string($item->id)) {
+            $id = new \stdClass();
+            $id->videoId = $item->id;
+            $video = $mapper->map($id, $video);
         }
 
         if (property_exists($item, 'contentDetails')
