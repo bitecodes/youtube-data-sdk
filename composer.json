@@ -1,0 +1,36 @@
+{
+  "name": "bitecodes/youtube-data-sdk",
+  "description": "Query the YouTube Data API V3",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Thomas Uhlmann",
+      "email": "thomas@bite.codes"
+    }
+  ],
+  "require": {
+    "php": "^7.0",
+    "php-http/httplug": "^1.1",
+    "php-http/message": "^1.6",
+    "netresearch/jsonmapper": "^1.4"
+  },
+  "require-dev": {
+    "php-http/guzzle6-adapter": "^1.1"
+  },
+  "suggest": {
+    "php-http/discovery": "Allows for auto-discovery the http client and message factory"
+  },
+  "config": {
+    "sort-packages": true
+  },
+  "autoload": {
+    "psr-4": {
+      "BiteCodes\\YouTubeData\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "BiteCodes\\YouTubeData\\Tests\\": "tests/"
+    }
+  }
+}
