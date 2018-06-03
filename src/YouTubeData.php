@@ -2,6 +2,7 @@
 
 namespace BiteCodes\YouTubeData;
 
+use BiteCodes\YouTubeData\Model\Channel;
 use BiteCodes\YouTubeData\Model\Video;
 use Http\Client\HttpClient;
 use Http\Discovery\HttpClientDiscovery;
@@ -189,6 +190,31 @@ class YouTubeData
     }
 
     /**
+     * @param string $id
+     * @param array  $parts
+     *
+     * @return Channel
+     * @throws \Http\Client\Exception
+     * @throws \JsonMapper_Exception
+     */
+    public function getChannelById(string $id, $parts = ['snippet'])
+    {
+        $url = self::BASE_URL . '/channels';
+        $url .= '?' . http_build_query([
+                'id'   => $id,
+                'part' => join(',', $parts),
+                'key'  => $this->apiKey,
+            ]);
+
+        $request = $this->messageFactory->createRequest('GET', $url);
+        $response = $this->sendRequest($request);
+
+        $contents = $this->getContents($response);
+
+        return $this->mapChannel($contents->items[0]);
+    }
+
+    /**
      * @param $request
      *
      * @return ResponseInterface
@@ -255,6 +281,31 @@ class YouTubeData
     protected function mapVideoList(array $items)
     {
         return array_map([$this, 'mapVideo'], $items);
+    }
+
+    /**
+     * @param $item
+     *
+     * @return Channel
+     * @throws \JsonMapper_Exception
+     */
+    protected function mapChannel($item)
+    {
+        $mapper = $this->getMapper();
+
+        $channel = new Channel();
+        if (property_exists($item, 'snippet')) {
+            $channel = $mapper->map($item->snippet, $channel);
+        }
+
+        if (property_exists($item, 'id')
+            || property_exists($item, 'contentDetails')
+            || property_exists($item, 'statistics')
+        ) {
+            $channel = $mapper->map($item, $channel);
+        }
+
+        return $channel;
     }
 
     /**
