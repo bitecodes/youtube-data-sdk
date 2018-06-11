@@ -7,32 +7,32 @@ class VideoStatistics
     /**
      * @var integer
      */
-    protected $viewCount;
+    protected $viewCount = 0;
 
     /**
      * @var integer
      */
-    protected $likeCount;
+    protected $likeCount = 0;
 
     /**
      * @var integer
      */
-    protected $dislikeCount;
+    protected $dislikeCount = 0;
 
     /**
      * @var integer
      */
-    protected $favoriteCount;
+    protected $favoriteCount = 0;
 
     /**
      * @var integer;
      */
-    protected $commentCount;
+    protected $commentCount = 0;
 
     /**
      * @return int
      */
-    public function getViewCount(): int
+    public function getViewCount()
     {
         return $this->viewCount;
     }
@@ -52,7 +52,7 @@ class VideoStatistics
     /**
      * @return int
      */
-    public function getLikeCount(): int
+    public function getLikeCount()
     {
         return $this->likeCount;
     }
@@ -72,7 +72,7 @@ class VideoStatistics
     /**
      * @return int
      */
-    public function getDislikeCount(): int
+    public function getDislikeCount()
     {
         return $this->dislikeCount;
     }
@@ -92,7 +92,7 @@ class VideoStatistics
     /**
      * @return int
      */
-    public function getFavoriteCount(): int
+    public function getFavoriteCount()
     {
         return $this->favoriteCount;
     }
@@ -112,7 +112,7 @@ class VideoStatistics
     /**
      * @return int
      */
-    public function getCommentCount(): int
+    public function getCommentCount()
     {
         return $this->commentCount;
     }

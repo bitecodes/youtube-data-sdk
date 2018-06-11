@@ -4,6 +4,12 @@ namespace BiteCodes\YouTubeData\Model;
 
 class Thumbnail
 {
+    const TYPE_DEFAULT = 'default';
+    const TYPE_MEDIUM = 'medium';
+    const TYPE_HIGH = 'high';
+    const TYPE_STANDARD = 'standard';
+    const TYPE_MAX_RES = 'maxRes';
+
     /**
      * @var string
      */
@@ -22,7 +28,7 @@ class Thumbnail
     /**
      * @return string
      */
-    public function getUrl(): string
+    public function getUrl()
     {
         return $this->url;
     }
@@ -30,7 +36,7 @@ class Thumbnail
     /**
      * @return int
      */
-    public function getWidth(): int
+    public function getWidth()
     {
         return $this->width;
     }
@@ -38,7 +44,7 @@ class Thumbnail
     /**
      * @return int
      */
-    public function getHeight(): int
+    public function getHeight()
     {
         return $this->height;
     }

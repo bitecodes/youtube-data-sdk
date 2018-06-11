@@ -37,7 +37,7 @@ class VideoContentDetails
     /**
      * @return \DateInterval
      */
-    public function getDuration(): \DateInterval
+    public function getDuration()
     {
         return $this->duration;
     }
@@ -45,7 +45,7 @@ class VideoContentDetails
     /**
      * @return string
      */
-    public function getDimension(): string
+    public function getDimension()
     {
         return $this->dimension;
     }
@@ -53,7 +53,7 @@ class VideoContentDetails
     /**
      * @return string
      */
-    public function getDefinition(): string
+    public function getDefinition()
     {
         return $this->definition;
     }
@@ -61,7 +61,7 @@ class VideoContentDetails
     /**
      * @return string
      */
-    public function getCaption(): string
+    public function getCaption()
     {
         return $this->caption;
     }
@@ -69,7 +69,7 @@ class VideoContentDetails
     /**
      * @return bool
      */
-    public function isLicensedContent(): bool
+    public function isLicensedContent()
     {
         return $this->licensedContent;
     }
@@ -77,7 +77,7 @@ class VideoContentDetails
     /**
      * @return string
      */
-    public function getProjection(): string
+    public function getProjection()
     {
         return $this->projection;
     }

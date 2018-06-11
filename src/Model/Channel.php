@@ -89,4 +89,14 @@ class Channel
     {
         return $this->thumbnails;
     }
+
+    /**
+     * @param $type
+     *
+     * @return Thumbnail|null
+     */
+    public function getThumbnail(string $type)
+    {
+        return $this->thumbnails[$type] ?? null;
+    }
 }

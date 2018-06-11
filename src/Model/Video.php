@@ -57,12 +57,12 @@ class Video
     /**
      * @var array
      */
-    protected $tags;
+    protected $tags = [];
 
     /**
      * @var Thumbnail[]
      */
-    protected $thumbnails;
+    protected $thumbnails = [];
 
     /**
      * @var VideoStatistics
@@ -176,6 +176,16 @@ class Video
     public function getThumbnails()
     {
         return $this->thumbnails;
+    }
+
+    /**
+     * @param string $type
+     *
+     * @return Thumbnail|null
+     */
+    public function getThumbnail(string $type)
+    {
+        return $this->thumbnails[$type] ?? null;
     }
 
     /**

@@ -3,7 +3,9 @@
 namespace BiteCodes\YouTubeData;
 
 use BiteCodes\YouTubeData\Model\Channel;
-use BiteCodes\YouTubeData\Model\Video;
+use BiteCodes\YouTubeData\Response\ChannelListResponse;
+use BiteCodes\YouTubeData\Response\SearchResponse;
+use BiteCodes\YouTubeData\Response\VideoListResponse;
 use Http\Client\HttpClient;
 use Http\Discovery\HttpClientDiscovery;
 use Http\Discovery\MessageFactoryDiscovery;
@@ -33,16 +35,6 @@ class YouTubeData
      * @var \JsonMapper
      */
     protected $mapper;
-
-    /**
-     * @var ResponseInterface
-     */
-    protected $lastResponse;
-
-    /**
-     * @var object
-     */
-    protected $lastContents;
 
     /**
      * @var array
@@ -106,14 +98,13 @@ class YouTubeData
         return $this;
     }
 
-
     /**
      * @param string $query
      * @param int    $maxResults
      *
      * @param array  $config
      *
-     * @return Video[]
+     * @return SearchResponse
      * @throws \Http\Client\Exception
      */
     public function search(string $query, $maxResults = 10, array $config = [])
@@ -131,36 +122,34 @@ class YouTubeData
 
         $request = $this->messageFactory->createRequest('GET', $url);
         $response = $this->sendRequest($request);
-        $contents = $this->getContents($response);
 
-        return $this->mapVideoList($contents->items);
+        return new SearchResponse($response);
     }
 
     /**
-     * @return Video[]
+     * @param SearchResponse $lastResponse
+     *
+     * @return SearchResponse
      * @throws \Http\Client\Exception
      */
-    public function moreSearchResults()
+    public function moreSearchResults(SearchResponse $lastResponse)
     {
         $url = self::BASE_URL . '/search';
 
-        $contents = $this->lastContents;
-
-        if (!isset($contents->nextPageToken)) {
+        if (null === $nextPageToken = $lastResponse->getNextPageToken()) {
             throw new \Exception('No more results');
         }
 
         $query = array_merge($this->currentQuery, [
-            'pageToken' => $contents->nextPageToken,
+            'pageToken' => $nextPageToken,
         ]);
 
         $url .= '?' . http_build_query($query);
 
         $request = $this->messageFactory->createRequest('GET', $url);
         $response = $this->sendRequest($request);
-        $contents = $this->getContents($response);
 
-        return $this->mapVideoList($contents->items);
+        return new SearchResponse($response);
     }
 
     /**
@@ -168,9 +157,8 @@ class YouTubeData
      *
      * @param array $parts
      *
-     * @return Video
+     * @return VideoListResponse
      * @throws \Http\Client\Exception
-     * @throws \JsonMapper_Exception
      */
     public function getVideoById($id, $parts = ['snippet', 'contentDetails', 'statistics'])
     {
@@ -184,18 +172,15 @@ class YouTubeData
         $request = $this->messageFactory->createRequest('GET', $url);
         $response = $this->sendRequest($request);
 
-        $contents = $this->getContents($response);
-
-        return $this->mapVideo($contents->items[0]);
+        return new VideoListResponse($response);
     }
 
     /**
      * @param string $id
      * @param array  $parts
      *
-     * @return Channel
+     * @return ChannelListResponse
      * @throws \Http\Client\Exception
-     * @throws \JsonMapper_Exception
      */
     public function getChannelById(string $id, $parts = ['snippet'])
     {
@@ -209,9 +194,7 @@ class YouTubeData
         $request = $this->messageFactory->createRequest('GET', $url);
         $response = $this->sendRequest($request);
 
-        $contents = $this->getContents($response);
-
-        return $this->mapChannel($contents->items[0]);
+        return new ChannelListResponse($response);
     }
 
     /**
@@ -222,106 +205,6 @@ class YouTubeData
      */
     protected function sendRequest($request): ResponseInterface
     {
-        $this->lastContents = null;
-
-        return $this->lastResponse = $this->client->sendRequest($request);
-    }
-
-    /**
-     * @param $response
-     *
-     * @return object
-     */
-    protected function getContents($response)
-    {
-        if ($response === $this->lastResponse && $this->lastContents === null) {
-            $contents = $this->lastContents = json_decode($response->getBody()->getContents());
-        } elseif ($response === $this->lastResponse) {
-            $contents = $this->lastContents;
-        } else {
-            $contents = json_decode($response->getBody()->getContents());
-        }
-
-        return $contents;
-    }
-
-    /**
-     * @param object $item
-     *
-     * @return Video|object
-     * @throws \JsonMapper_Exception
-     */
-    protected function mapVideo($item)
-    {
-        $mapper = $this->getMapper();
-
-        $video = new Video();
-        if (property_exists($item, 'snippet')) {
-            $video = $mapper->map($item->snippet, $video);
-        }
-
-        if (property_exists($item, 'id') && is_object($item->id)) {
-            $video = $mapper->map($item->id, $video);
-        } elseif (property_exists($item, 'id') && is_string($item->id)) {
-            $id = new \stdClass();
-            $id->videoId = $item->id;
-            $video = $mapper->map($id, $video);
-        }
-
-        if (property_exists($item, 'contentDetails')
-            || property_exists($item, 'statistics')
-        ) {
-            $video = $mapper->map($item, $video);
-        }
-
-        return $video;
-    }
-
-    /**
-     * @param array $items
-     *
-     * @return Video[]
-     */
-    protected function mapVideoList(array $items)
-    {
-        return array_map([$this, 'mapVideo'], $items);
-    }
-
-    /**
-     * @param $item
-     *
-     * @return Channel
-     * @throws \JsonMapper_Exception
-     */
-    protected function mapChannel($item)
-    {
-        $mapper = $this->getMapper();
-
-        $channel = new Channel();
-        if (property_exists($item, 'snippet')) {
-            $channel = $mapper->map($item->snippet, $channel);
-        }
-
-        if (property_exists($item, 'id')
-            || property_exists($item, 'contentDetails')
-            || property_exists($item, 'statistics')
-        ) {
-            $channel = $mapper->map($item, $channel);
-        }
-
-        return $channel;
-    }
-
-    /**
-     * @return \JsonMapper
-     */
-    protected function getMapper(): \JsonMapper
-    {
-        if (!$this->mapper) {
-            $this->mapper = new \JsonMapper();
-            $this->mapper->bIgnoreVisibility = true;
-        }
-
-        return $this->mapper;
+        return $this->client->sendRequest($request);
     }
 }

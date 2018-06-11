@@ -15,7 +15,9 @@
     "netresearch/jsonmapper": "^1.4"
   },
   "require-dev": {
-    "php-http/guzzle6-adapter": "^1.1"
+    "php-http/guzzle6-adapter": "^1.1",
+    "php-http/mock-client": "^1.1",
+    "phpunit/phpunit": "^7.2"
   },
   "suggest": {
     "php-http/discovery": "Allows for auto-discovery the http client and message factory"

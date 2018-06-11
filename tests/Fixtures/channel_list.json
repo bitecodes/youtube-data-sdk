@@ -1,0 +1,56 @@
+{
+  "kind": "youtube#channelListResponse",
+  "etag": "\"DuHzAJ-eQIiCIp7p4ldoVcVAOeY/WOWKACFVNVGKiX-Sme94XK2wnq0\"",
+  "pageInfo": {
+    "totalResults": 1,
+    "resultsPerPage": 1
+  },
+  "items": [
+    {
+      "kind": "youtube#channel",
+      "etag": "\"DuHzAJ-eQIiCIp7p4ldoVcVAOeY/aK9ym4cV6VHL9jYzsYkt8gUXW8c\"",
+      "id": "UC_x5XG1OV2P6uZZ5FSM9Ttw",
+      "snippet": {
+        "title": "Google Developers",
+        "description": "The Google Developers channel features talks...",
+        "customUrl": "GoogleDevelopers",
+        "publishedAt": "2007-08-23T00:34:43.000Z",
+        "thumbnails": {
+          "default": {
+            "url": "https://yt3.ggpht.com/-Fgp8KFpgQqE/AAAAAAAAAAI/AAAAAAAAAAA/Wyh1vV5Up0I/s88-c-k-no-mo-rj-c0xffffff/photo.jpg",
+            "width": 88,
+            "height": 88
+          },
+          "medium": {
+            "url": "https://yt3.ggpht.com/-Fgp8KFpgQqE/AAAAAAAAAAI/AAAAAAAAAAA/Wyh1vV5Up0I/s240-c-k-no-mo-rj-c0xffffff/photo.jpg",
+            "width": 240,
+            "height": 240
+          },
+          "high": {
+            "url": "https://yt3.ggpht.com/-Fgp8KFpgQqE/AAAAAAAAAAI/AAAAAAAAAAA/Wyh1vV5Up0I/s800-c-k-no-mo-rj-c0xffffff/photo.jpg",
+            "width": 800,
+            "height": 800
+          }
+        },
+        "localized": {
+          "title": "Google Developers",
+          "description": "The Google Developers channel features talks from events, educational series, best practices, tips, and the latest updates across our products and platforms."
+        }
+      },
+      "contentDetails": {
+        "relatedPlaylists": {
+          "uploads": "UU_x5XG1OV2P6uZZ5FSM9Ttw",
+          "watchHistory": "HL",
+          "watchLater": "WL"
+        }
+      },
+      "statistics": {
+        "viewCount": "139882531",
+        "commentCount": "0",
+        "subscriberCount": "1547129",
+        "hiddenSubscriberCount": false,
+        "videoCount": "4754"
+      }
+    }
+  ]
+}
