@@ -3,6 +3,8 @@
 namespace BiteCodes\YouTubeData\Tests;
 
 use BiteCodes\YouTubeData\Model\Channel;
+use BiteCodes\YouTubeData\Model\ChannelBrandingSettings;
+use BiteCodes\YouTubeData\Model\ChannelImage;
 use BiteCodes\YouTubeData\Model\Thumbnail;
 use BiteCodes\YouTubeData\Model\Video;
 use BiteCodes\YouTubeData\Model\VideoContentDetails;
@@ -161,5 +163,12 @@ class YouTubeDataTest extends TestCase
         $this->assertEquals('2007-08-23', $channel->getPublishedAt()->format('Y-m-d'));
         $this->assertCount(3, $channel->getThumbnails());
         $this->assertInstanceOf(Thumbnail::class, $channel->getThumbnail(Thumbnail::TYPE_DEFAULT));
+
+        ## Brand Settings
+        $brand = $channel->getBrandingSettings();
+
+        $this->assertEquals('#000000', $brand->getProfileColor());
+        $this->assertCount(14, $brand->getImages());
+        $this->assertEquals(ChannelImage::BANNER_IMAGE_URL, $brand->getImageByType(ChannelImage::BANNER_IMAGE_URL)->getType());
     }
 }

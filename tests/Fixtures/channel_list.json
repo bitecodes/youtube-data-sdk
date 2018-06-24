@@ -1,6 +1,6 @@
 {
   "kind": "youtube#channelListResponse",
-  "etag": "\"DuHzAJ-eQIiCIp7p4ldoVcVAOeY/WOWKACFVNVGKiX-Sme94XK2wnq0\"",
+  "etag": "\"DuHzAJ-eQIiCIp7p4ldoVcVAOeY/m5xuWjn-bwg2gGExGVPQfHZU0VI\"",
   "pageInfo": {
     "totalResults": 1,
     "resultsPerPage": 1
@@ -8,7 +8,7 @@
   "items": [
     {
       "kind": "youtube#channel",
-      "etag": "\"DuHzAJ-eQIiCIp7p4ldoVcVAOeY/aK9ym4cV6VHL9jYzsYkt8gUXW8c\"",
+      "etag": "\"DuHzAJ-eQIiCIp7p4ldoVcVAOeY/1cxuQgITbXqZwkVdCuIYyRMgMZ0\"",
       "id": "UC_x5XG1OV2P6uZZ5FSM9Ttw",
       "snippet": {
         "title": "Google Developers",
@@ -45,11 +45,68 @@
         }
       },
       "statistics": {
-        "viewCount": "139882531",
+        "viewCount": "140510134",
         "commentCount": "0",
-        "subscriberCount": "1547129",
+        "subscriberCount": "1561068",
         "hiddenSubscriberCount": false,
-        "videoCount": "4754"
+        "videoCount": "4762"
+      },
+      "brandingSettings": {
+        "channel": {
+          "title": "Google Developers",
+          "description": "The Google Developers channel features talks from events, educational series, best practices, tips, and the latest updates across our products and platforms.",
+          "defaultTab": "Featured",
+          "trackingAnalyticsAccountId": "YT-9170156-1",
+          "moderateComments": true,
+          "showRelatedChannels": true,
+          "showBrowseView": true,
+          "featuredChannelsTitle": "Featured Channels",
+          "featuredChannelsUrls": [
+            "UCP4bf6IHJJQehibu6ai__cg",
+            "UCVHFbqXqoYvEWM1Ddxl0QDg",
+            "UCnUYZLuoy1rq1aVMwx4aTzw",
+            "UClKO7be7O9cUGL94PHnAeOA",
+            "UCdIiCSqXuybzwGwJwrpHPqw",
+            "UCJS9pqu9BzkAMNTmzNMNhvg",
+            "UCorTyjVGM-PV5CCKbosONow",
+            "UCYnbo-SO6yQxO5jAtzFfJ-g",
+            "UCTspylBf8iNobZHgwUD4PXA",
+            "UCeo-MamuQVFRcfQmS2N7fhw",
+            "UCQqa5UIHtrnpiADC3eHFupw"
+          ],
+          "unsubscribedTrailer": "NeF0zpT4gNE",
+          "profileColor": "#000000"
+        },
+        "image": {
+          "bannerImageUrl": "https://yt3.ggpht.com/z8f9KErbtzLHFvmzvhYY3DU2Ffwm1NuDLdv9Fg258VR5T_8pxbpviM_9_Jd6DfcflVEy8S4_rw=w1060-fcrop64=1,00005a57ffffa5a8-nd-c0xffffffff-rj-k-no",
+          "bannerMobileImageUrl": "https://yt3.ggpht.com/z8f9KErbtzLHFvmzvhYY3DU2Ffwm1NuDLdv9Fg258VR5T_8pxbpviM_9_Jd6DfcflVEy8S4_rw=w640-fcrop64=1,32b75a57cd48a5a8-nd-c0xffffffff-rj-k-no",
+          "bannerTabletLowImageUrl": "https://yt3.ggpht.com/z8f9KErbtzLHFvmzvhYY3DU2Ffwm1NuDLdv9Fg258VR5T_8pxbpviM_9_Jd6DfcflVEy8S4_rw=w1138-fcrop64=1,00005a57ffffa5a8-nd-c0xffffffff-rj-k-no",
+          "bannerTabletImageUrl": "https://yt3.ggpht.com/z8f9KErbtzLHFvmzvhYY3DU2Ffwm1NuDLdv9Fg258VR5T_8pxbpviM_9_Jd6DfcflVEy8S4_rw=w1707-fcrop64=1,00005a57ffffa5a8-nd-c0xffffffff-rj-k-no",
+          "bannerTabletHdImageUrl": "https://yt3.ggpht.com/z8f9KErbtzLHFvmzvhYY3DU2Ffwm1NuDLdv9Fg258VR5T_8pxbpviM_9_Jd6DfcflVEy8S4_rw=w2276-fcrop64=1,00005a57ffffa5a8-nd-c0xffffffff-rj-k-no",
+          "bannerTabletExtraHdImageUrl": "https://yt3.ggpht.com/z8f9KErbtzLHFvmzvhYY3DU2Ffwm1NuDLdv9Fg258VR5T_8pxbpviM_9_Jd6DfcflVEy8S4_rw=w2560-fcrop64=1,00005a57ffffa5a8-nd-c0xffffffff-rj-k-no",
+          "bannerMobileLowImageUrl": "https://yt3.ggpht.com/z8f9KErbtzLHFvmzvhYY3DU2Ffwm1NuDLdv9Fg258VR5T_8pxbpviM_9_Jd6DfcflVEy8S4_rw=w320-fcrop64=1,32b75a57cd48a5a8-nd-c0xffffffff-rj-k-no",
+          "bannerMobileMediumHdImageUrl": "https://yt3.ggpht.com/z8f9KErbtzLHFvmzvhYY3DU2Ffwm1NuDLdv9Fg258VR5T_8pxbpviM_9_Jd6DfcflVEy8S4_rw=w960-fcrop64=1,32b75a57cd48a5a8-nd-c0xffffffff-rj-k-no",
+          "bannerMobileHdImageUrl": "https://yt3.ggpht.com/z8f9KErbtzLHFvmzvhYY3DU2Ffwm1NuDLdv9Fg258VR5T_8pxbpviM_9_Jd6DfcflVEy8S4_rw=w1280-fcrop64=1,32b75a57cd48a5a8-nd-c0xffffffff-rj-k-no",
+          "bannerMobileExtraHdImageUrl": "https://yt3.ggpht.com/z8f9KErbtzLHFvmzvhYY3DU2Ffwm1NuDLdv9Fg258VR5T_8pxbpviM_9_Jd6DfcflVEy8S4_rw=w1440-fcrop64=1,32b75a57cd48a5a8-nd-c0xffffffff-rj-k-no",
+          "bannerTvImageUrl": "https://yt3.ggpht.com/z8f9KErbtzLHFvmzvhYY3DU2Ffwm1NuDLdv9Fg258VR5T_8pxbpviM_9_Jd6DfcflVEy8S4_rw=w2120-fcrop64=1,00000000ffffffff-nd-c0xffffffff-rj-k-no",
+          "bannerTvLowImageUrl": "https://yt3.ggpht.com/z8f9KErbtzLHFvmzvhYY3DU2Ffwm1NuDLdv9Fg258VR5T_8pxbpviM_9_Jd6DfcflVEy8S4_rw=w854-fcrop64=1,00000000ffffffff-nd-c0xffffffff-rj-k-no",
+          "bannerTvMediumImageUrl": "https://yt3.ggpht.com/z8f9KErbtzLHFvmzvhYY3DU2Ffwm1NuDLdv9Fg258VR5T_8pxbpviM_9_Jd6DfcflVEy8S4_rw=w1280-fcrop64=1,00000000ffffffff-nd-c0xffffffff-rj-k-no",
+          "bannerTvHighImageUrl": "https://yt3.ggpht.com/z8f9KErbtzLHFvmzvhYY3DU2Ffwm1NuDLdv9Fg258VR5T_8pxbpviM_9_Jd6DfcflVEy8S4_rw=w1920-fcrop64=1,00000000ffffffff-nd-c0xffffffff-rj-k-no"
+        },
+        "hints": [
+          {
+            "property": "channel.featured_tab.template.string",
+            "value": "Everything"
+          },
+          {
+            "property": "channel.modules.show_comments.bool",
+            "value": "True"
+          },
+          {
+            "property": "channel.banner.mobile.medium.image.url",
+            "value": "https://yt3.ggpht.com/z8f9KErbtzLHFvmzvhYY3DU2Ffwm1NuDLdv9Fg258VR5T_8pxbpviM_9_Jd6DfcflVEy8S4_rw=w640-fcrop64=1,32b75a57cd48a5a8-nd-c0xffffffff-rj-k-no"
+          }
+        ]
       }
     }
   ]

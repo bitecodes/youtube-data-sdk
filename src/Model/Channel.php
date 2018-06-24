@@ -35,6 +35,11 @@ class Channel
     protected $thumbnails;
 
     /**
+     * @var ChannelBrandingSettings
+     */
+    protected $brandingSettings;
+
+    /**
      * @return string
      */
     public function getId()
@@ -98,5 +103,25 @@ class Channel
     public function getThumbnail(string $type)
     {
         return $this->thumbnails[$type] ?? null;
+    }
+
+    /**
+     * @return ChannelBrandingSettings
+     */
+    public function getBrandingSettings()
+    {
+        return $this->brandingSettings;
+    }
+
+    /**
+     * @param ChannelBrandingSettings $brandingSettings
+     *
+     * @return Channel
+     */
+    public function setBrandingSettings(ChannelBrandingSettings $brandingSettings)
+    {
+        $this->brandingSettings = $brandingSettings;
+
+        return $this;
     }
 }
